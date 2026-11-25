@@ -1,0 +1,27 @@
+,0
+Date,60
+Service,240
+Gare de départ,59
+Gare d'arrivée,59
+Durée moyenne du trajet,240
+Nombre de circulations prévues,240
+Nombre de trains annulés,239
+Commentaire annulations,11493
+Nombre de trains en retard au départ,240
+Retard moyen des trains en retard au départ,239
+Retard moyen de tous les trains au départ,241
+Commentaire retards au départ,11466
+Nombre de trains en retard à l'arrivée,241
+Retard moyen des trains en retard à l'arrivée,242
+Retard moyen de tous les trains à l'arrivée,238
+Commentaire retards à l'arrivée,10930
+Nombre trains en retard > 15min,242
+Retard moyen trains en retard > 15 (si liaison concurrencée par vol),239
+Nombre trains en retard > 30min,238
+Nombre trains en retard > 60min,237
+Prct retard pour causes externes,242
+Prct retard pour cause infrastructure,243
+Prct retard pour cause gestion trafic,241
+Prct retard pour cause matériel roulant,243
+Prct retard pour cause gestion en gare et réutilisation de matériel,242
+"Prct retard pour cause prise en compte voyageurs (affluence, gestions PSH, correspondances)",240

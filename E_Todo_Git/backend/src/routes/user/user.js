@@ -1,0 +1,150 @@
+const express = require('express');
+const users = express.Router();
+const dotenv = require('dotenv');
+dotenv.config();
+const { IdExists } = require('./user.query');
+const { userExists } = require('./user.query');
+const jwt = require('jsonwebtoken');
+const key = process.env.SECRET;
+
+
+const { GetAllUsers } = require('./user.query');
+users.get('/user', async (req, res, next) => {
+    try {
+        const db = req.app.locals.db;
+        const rows = await GetAllUsers(db);
+        res.status(200).json(rows);
+    } catch (err) {
+        next(err);
+    }
+});
+
+
+const { GetUserTodos } = require('./user.query');
+users.get('/user/todos', async (req, res, next) => {
+    try {
+        const token = req.header('Authorization');
+        const decodedPayload = jwt.verify(token, key);
+        const db = req.app.locals.db;
+        const rows = await GetUserTodos(db, decodedPayload.id);
+        console.log(rows)
+        res.status(200).json(rows);
+    } catch (err) {
+        next(err);
+    }
+});
+const { GetUserByEmail } = require('./user.query');
+const { GetUserById } = require('./user.query');
+users.get('/users/:param', async (req, res, next) => {
+
+    try {
+        let rows;
+        if (req.params.param.includes('@')) {
+            console.log("email detected");
+            const db = req.app.locals.db;
+            if (!await userExists(req.params.param, db)) {
+                const error = new Error('User not found');
+                error.name = 'UserFoundError';
+                throw error;
+            }
+            console.log("query email");
+            rows = await GetUserByEmail(db, req.params.param);
+            console.log(rows);
+            console.log("after query email");
+
+            if (!rows || rows.length === 0) {
+                const error = new Error('User not found');
+                error.name = 'UserFoundError';
+                throw error;
+            }
+        }
+        else {
+            console.log("id detected");
+            const db = req.app.locals.db;
+            if (!await IdExists(req.params.param, db)) {
+                const error = new Error('User not found');
+                error.name = 'UserFoundError';
+                throw error;
+            }
+            rows = await GetUserById(db, req.params.param);
+
+            if (!rows || rows.length === 0) {
+                const error = new Error('User not found');
+                error.name = 'UserFoundError';
+                throw error;
+            }
+        }
+        console.log(rows + "test");
+        res.status(200).json(rows);
+    } catch (err) {
+        next(err);
+    }
+});
+
+// users.get('/user/:id/todos', async (req, res, next) => {
+//     try {
+//         const db = req.app.locals.db;
+//         if (!await IdExists(req.params.id, db)) {
+//             const error = new Error('User not found');
+//             error.name = 'NotFoundError';
+//             throw error;
+//         }
+//         const rows = await GetAllUserTodos(db, req.params.id);
+//         res.status(200).json(rows);
+//     } catch (err) {
+//         next(err);
+//     }
+// });
+
+users.get('/users/:email', async (req, res, next) => {
+    try {
+
+    } catch (err) {
+        next(err);
+    }
+});
+
+const { UpdateUser } = require('./user.query');
+users.put('/users/:id', async (req, res, next) => {
+
+    try {
+        const db = req.app.locals.db;
+        if (!await IdExists(req.params.id, db)) {
+            const error = new Error('User not found');
+            error.name = 'NotFoundError';
+            throw error;
+        }
+        const { email, name, firstname, password } = req.body;
+
+        if (!email || !name || !firstname || !password) {
+            const error = new Error('Missing parameters');
+            error.name = 'BadParametersError';
+            throw error;
+        }
+        const salt = bcryptjs.genSaltSync(10);
+        const hashed =  bcryptjs.hashSync(password, salt);
+        const result = await UpdateUser(db, req.params.id, email, name, firstname, hashed);
+        res.status(200).json(result);
+    } catch (err) {
+        next(err);
+    }
+});
+
+
+const { DeleteUser } = require('./user.query');
+users.delete('/users/:id', async (req, res, next) => {
+    try {
+        const db = req.app.locals.db;
+        if (!await IdExists(req.params.id, db)) {
+            const error = new Error('User not found');
+            error.name = 'NotFoundError';
+            throw error;
+        }
+        await DeleteUser(db, req.params.id);
+        res.status(200).json({ msg: `Successfully deleted record number: ${req.params.id}` });
+    } catch (err) {
+        next(err);
+    }
+});
+
+module.exports = users;

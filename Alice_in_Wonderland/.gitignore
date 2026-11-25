@@ -1,0 +1,7 @@
+books/*
+__pycache*/
+test*
+*cache*
+*checkpoint*
+venv/
+venv/

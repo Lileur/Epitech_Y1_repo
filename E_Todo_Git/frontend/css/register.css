@@ -1,0 +1,128 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.background{
+  background-image: url('../assets/business-office-wallpaper.jpg');
+  background-size: 100%;
+}
+.Login{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15%;
+  background: radial-gradient(circle,rgba(237, 237, 237, 0.9) 0%, rgba(189, 189, 189, 0.9) 100%);
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  max-width: 25%;
+  padding: 20px;
+  margin-left: 450px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+/* Set a style for all buttons */
+button {
+  background-color: #4e4e4e;
+  border-radius: 60px;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 24px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0,0,0,0.2);
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; /* 5% from the top, 15% from the bottom and centered */
+  margin-top: 30px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+  height: 80%;
+  border-radius: 20px ;
+  padding: 20px;
+}
+.psw{
+  margin-left: 70%;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span */
+@media screen and (max-width: 300px) {
+  
+}

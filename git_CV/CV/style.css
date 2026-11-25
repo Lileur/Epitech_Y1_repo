@@ -1,0 +1,148 @@
+body {
+    background: linear-gradient(0deg, #000000,#5e6663,#25bb7d);
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+header {
+  position: sticky;
+}
+
+.links {
+    font-size: 125%;
+    background-color: #249f6a;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+.button_lien {
+  display: inline-block;
+  background-color: rgb(13, 161, 136);
+  border-radius: 10px;
+  color: black;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: fit-content;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.space {
+    margin-left: 2%;
+    margin-right: 3%;
+}
+
+footer {
+    color: beige;
+    text-align: center;
+    font-size: 30px;
+}
+
+.border {
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.paragraphe{
+    background-color: #25bb7d;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 25px;
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+    max-width: 60%;
+    text-align: center;
+
+    
+}
+
+.Big_paragraphe{
+    background-color: #25bb7d;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 25px;
+    width: fit-content;
+    height: fit-content;
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 80%;
+    text-align: center;
+
+    
+}
+
+
+
+form {
+  margin: 20px;
+  width: fit-content;
+  padding: 1em;
+  border: 3px solid black;
+  border-radius: 1em;
+  background-color: #53ffb5;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+form li + li {
+  margin-top: 1em;
+}
+
+label {
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+  font-size: 20px;
+}
+
+.text1 {
+    font-size: 25px;
+}
+
+@keyframes Animation {
+  0%   {background-color:red; left: 10%; top:0px;}
+  25%  {background-color:yellow; left: 60%; top:0px;}
+  50%  {background-color:blue; left:60%; top:40px;}
+  75%  {background-color:green; left:10%; top:40px;}
+  100% {background-color:red; left:10%; top:0px;}
+}
+
+.mouving_thank {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    background-color: red;
+    animation-name: Animation;
+    animation-duration: 8s;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    animation-iteration-count: infinite;
+    color: black;
+}

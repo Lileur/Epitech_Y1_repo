@@ -1,0 +1,1 @@
+When we got the answers to our quiz, the most common answer we got was the abundance of ads that pop up. Said advertisments have been breaking the flow of the viewing streak of consumers since they were implemented in social apps. Combine that with the absurd amount of time they run for and the fact that some cannot be skipped and you have a very annoying experience, bad even.

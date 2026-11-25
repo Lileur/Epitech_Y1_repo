@@ -1,0 +1,61 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: jobsense-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jobsense
+      MYSQL_USER: jobsense_user
+      MYSQL_PASSWORD: jobsense_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./backend/jobsense-init.sql:/docker-entrypoint-initdb.d/jobsense.sql:ro,Z
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+  backend:
+    build: ./backend
+    container_name: jobsense-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: jobsense_user
+      DB_PASSWORD: jobsense_password
+      DB_NAME: jobsense
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-change-me}
+      SESSION_SECRET: ${SESSION_SECRET:-dev-session-secret-change-me}
+      FRONTEND_ORIGIN: http://localhost:5173
+      API_PUBLIC_URL: http://localhost:3000
+      NODE_ENV: development
+      RECAPTCHA_RELAXED: "1"
+      RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY:-6LeIxAcTAAAAAGG-vFI1TnRWxM4CJU7Iqi}
+      # WELOVEDEVS_API_KEY : uniquement via backend/.env (env_file), pas de surcharge vide ici
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    command: npm run dev
+
+  frontend:
+    build: ./jobsense
+    container_name: jobaggregator-frontend
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./jobsense/.env
+    command: npm run dev -- --host 0.0.0.0 --port 5173
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

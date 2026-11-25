@@ -1,0 +1,69 @@
+body{
+    background: linear-gradient(90deg,rgba(42, 155, 115, 1) 0%, rgba(96, 199, 87, 1) 50%, rgba(181, 237, 83, 1) 100%);
+}
+.pedago{
+    display: block;
+    justify-self: right;
+    background-color: rgba(245, 222, 179, 0);
+    border: none;
+    transition: .4s;
+}
+svg{
+    height: 50px;
+    width: 50px;
+}
+.pedago:hover{
+    transform: scale(1.2);
+}
+h1{
+    text-align: center;
+    font-size: 80px;
+    color: rgb(232, 229, 229);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.search{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 50px;
+}
+.commune1{
+    transition: .4s;
+    height: 50px;
+    width: 400px;
+    outline: none;
+    border-radius: 15px;
+    font-size: larger;
+    border: none;
+    background: rgba(255, 255, 255, 0.767);
+    box-shadow: 2px 3px 2px 3px rgba(0, 0, 0, 0.171);
+}
+.commune1:hover{
+    transform: scale(1.05);
+}
+.commune2{
+    transition: .4s;
+    height: 50px;
+    width: 400px;
+    outline: none;
+    border-radius: 15px;
+    font-size: larger;
+    border: none;
+    background: rgba(255, 255, 255, 0.767);
+    box-shadow: 2px 3px 2px 3px rgba(0, 0, 0, 0.247);
+}
+.commune2:hover{
+    transform: scale(1.05);
+}
+.result{
+    display: flex;
+    justify-content: space-around;
+}
+.zone{
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.452);
+    border-radius: 15px;
+    box-shadow: 2px 3px 2px 3px rgba(0, 0, 0, 0.247);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

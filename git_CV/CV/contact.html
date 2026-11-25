@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Léandre online CV</title>
+</head>
+<body>
+    <header>
+        <div class="links border">
+            <button onclick="window.location.href = 'index.html'" class="button_lien">Home</button>
+            <button onclick="window.location.href = 'experiences.html'" class="button_lien">My experiences</button>
+            <button onclick="window.location.href = 'contact.html'" class="button_lien">Contact me</button>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <p class="text1">
+                If you want to contact me, you can use this little form to sent me an email.
+            </p>
+        </div>
+        <div class="container">
+            <div class="formulaire">
+                <form action="contact.html" method="post">
+                    <ul>
+                        <li>
+                            <label for="name">Nom : </label>
+                            <input type="text" id="name" name="user_name" />
+                        </li>
+                        <li>
+                            <label for="mail">E-mail : </label>
+                            <input type="email" id="mail" name="user_mail" />
+                        </li>
+                        <li>
+                            <label for="subject">Subject : </label>
+                            <input type="text" id="subject" name="subject" />
+                        </li>
+                        <li>
+                            <label for="msg">Message : </label>
+                            <textarea id="msg" name="user_message"></textarea>
+                        </li>
+                        <li>
+                            <button type="submit">Envoyer le message</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            This site has been designed by Léandre Boubault--Lefebvre, this is an exemple and will be changed later.
+        </p>
+        <p>
+            My informations : Léandre Boubault--Lefebvre, student at Epitech (2025-2028). <br>
+            My mail : leandre.boubault-lefebvre@epitech.eu <br>
+            My phone number : 0767528666
+        </p>
+        <div class="mouving_thank">thank you for <br>looking <br>at my page</div>
+        <div class="links border">
+            <button onclick="window.location.href = 'index.html'" class="button_lien">Home</button>
+            <button onclick="window.location.href = 'experiences.html'" class="button_lien">My experiences</button>
+            <button onclick="window.location.href = 'contact.html'" class="button_lien">Contact me</button>
+        </div>
+    </footer>
+</body>

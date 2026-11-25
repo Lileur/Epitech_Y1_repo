@@ -1,0 +1,3 @@
+-Our app will be able to be used with one finger, like most popular apps nowadays.
+-The app will react dynamically to the setting to allow users to use it on any computer, phone or ipad.
+-No annoying ads.
